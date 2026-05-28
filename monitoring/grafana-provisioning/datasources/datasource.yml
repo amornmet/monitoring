@@ -1,0 +1,15 @@
+apiVersion: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    ## ใช้ชื่อ Service 'prometheus' ตามที่ตั้งใน docker-compose ได้เลย 
+    ## เนื่องจากอยู่ใน Docker Network เดียวกัน มันจะทำ Service Discovery ให้เอง
+    url: http://prometheus:9090
+    isDefault: true
+    jsonData:
+      httpMethod: POST
+      ## ตั้งค่าช่วงเวลาการดึงข้อมูลขั้นต่ำให้สอดคล้องกับ scrape_interval ใน prometheus.yml
+      timeInterval: 15s
+    editable: true ## ตั้งเป็น true เพื่อให้ผู้ใช้สามารถไปแก้ไขหรือลบในหน้าเว็บต่อได้ (หากต้องการล็อกให้ตั้งเป็น false)
