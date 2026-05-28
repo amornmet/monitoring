@@ -1,7 +1,0 @@
-# Ignore local database storage
-grafana-data/*
-prometheus-data/*
-
-# แต่ยังคงเก็บไฟล์คอนฟิก prometheus.yml เอาไว้
-!prometheus-data/prometheus.yml
-!grafana-data/.gitkeep
