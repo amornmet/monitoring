@@ -49,9 +49,17 @@ scrape_configs:
   ##    WantedBy=multi-user.target
   ## 5. สั่งรัน: sudo systemctl daemon-reload && sudo systemctl enable --now node_exporter
   ## ----------------------------------------------------------------------------
-  # - job_name: "node-exporter"
-  #   static_configs:
-  #     - targets: ["<LINUX_SERVER_IP>:9100"]
+  - job_name: "node-exporter"
+    static_configs:
+      - targets: ["172.71.7.191:9100"]
+        labels:
+          custom_name: "pve9node1"
+      - targets: ["172.71.7.192:9100"]
+        labels:
+          custom_name: "pve9node2"
+      - targets: ["172.71.7.193:9100"]
+        labels:
+          custom_name: "pve9node3"
 
 
   ## ----------------------------------------------------------------------------
@@ -91,11 +99,12 @@ scrape_configs:
   ## 2. ตรวจสอบ Port (ปกติจะเปิดที่ Port 9283 อัตโนมัติบน MGR Node ที่ Active/Standby):
   ##    ceph prometheus status
   ## ----------------------------------------------------------------------------
-  # - job_name: "ceph-cluster"
-  #   static_configs:
-  #     - targets:
-  #         - "<CEPH_MGR_NODE_1_IP>:9283"
-  #         - "<CEPH_MGR_NODE_2_IP>:9283"
+  - job_name: "ceph-cluster"
+    static_configs:
+      - targets:
+          - "172.71.7.191:9283"
+          - "172.71.7.192:9283"
+          - "172.71.7.193:9283"
 
 
   ## ----------------------------------------------------------------------------
