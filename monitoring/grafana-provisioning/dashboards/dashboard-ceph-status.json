@@ -1022,8 +1022,8 @@
           },
           "decimals": 0,
           "mappings": [],
-          "max": 2,
-          "min": 0,
+          "max": 1,
+          "min": -1,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1070,7 +1070,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "max(ceph_health_status)",
+          "expr": "1 - max(ceph_health_status)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -1151,7 +1151,9 @@
       "id": 14,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": [
+            "last"
+          ],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1254,7 +1256,9 @@
       "id": 3,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": [
+            "last"
+          ],
           "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
@@ -1344,7 +1348,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 10,
         "w": 12,
         "x": 0,
         "y": 17
@@ -1352,8 +1356,10 @@
       "id": 19,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
           "placement": "right",
           "showLegend": true
         },
@@ -1442,7 +1448,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 10,
         "w": 12,
         "x": 12,
         "y": 17
@@ -1450,8 +1456,10 @@
       "id": 20,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
           "placement": "right",
           "showLegend": true
         },
@@ -1492,6 +1500,6 @@
   "timezone": "browser",
   "title": "Ceph Service",
   "uid": "afnev6lxwk64gc",
-  "version": 27,
+  "version": 30,
   "weekStart": ""
 }
