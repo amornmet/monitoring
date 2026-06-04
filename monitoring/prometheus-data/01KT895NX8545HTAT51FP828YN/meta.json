@@ -1,0 +1,17 @@
+{
+	"ulid": "01KT895NX8545HTAT51FP828YN",
+	"minTime": 1780531200590,
+	"maxTime": 1780538400000,
+	"stats": {
+		"numSamples": 5208480,
+		"numSeries": 10851,
+		"numChunks": 43404
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KT895NX8545HTAT51FP828YN"
+		]
+	},
+	"version": 1
+}
