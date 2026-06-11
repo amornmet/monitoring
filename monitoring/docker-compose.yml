@@ -6,8 +6,10 @@ services:
     ports:
       - "9090:9090"
     volumes:
+      # แยกไฟล์ config ไว้ที่โฟลเดอร์หลัก (หรือสร้างโฟลเดอร์ config แยก)
       - ./prometheus-data/prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus-data:/prometheus
+      # ส่วนข้อมูล TSDB ให้แยกไปลงโฟลเดอร์ย่อยชื่อ /data เพื่อไม่ให้ปนกัน
+      - ./prometheus-data/data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -27,9 +29,7 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
     volumes:
-      ## 1. Mount โฟลเดอร์เก็บข้อมูลปกติ (ที่ถูก Ignore ใน Git)
       - ./grafana-data:/var/lib/grafana
-      ## 2. [เพิ่มบรรทัดนี้] Mount โฟลเดอร์ Provisioning สำหรับใส่ Data Source อัตโนมัติ
       - ./grafana-provisioning:/etc/grafana/provisioning
     user: "472"
     networks:

@@ -1,0 +1,17 @@
+{
+	"ulid": "01KTTQP6Y6475PTZ2M874WYTYG",
+	"minTime": 1781150404204,
+	"maxTime": 1781157600000,
+	"stats": {
+		"numSamples": 5253797,
+		"numSeries": 10949,
+		"numChunks": 43784
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KTTQP6Y6475PTZ2M874WYTYG"
+		]
+	},
+	"version": 1
+}

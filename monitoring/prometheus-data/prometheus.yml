@@ -75,11 +75,11 @@ scrape_configs:
   ## 2. รัน Exporter Container:
   ##    docker run -d -p 9221:9221 --name proxmox-exporter -v $(pwd)/pve.yml:/etc/prometheus-pve-exporter/pve.yml proms/prometheus-pve-exporter
   ## ----------------------------------------------------------------------------
-  # - job_name: "proxmox"
-  #   metrics_path: /pve
-  #   static_configs:
-  #     - targets:
-  #         - "<PROXMOX_NODE_1_IP>"
+  - job_name: "pve9-cluster"
+    metrics_path: /pve
+    static_configs:
+      - targets:
+          - "172.71.7.190:9221"
   #         - "<PROXMOX_NODE_2_IP>"
   #   relabel_configs:
   #     - source_labels: [__address__]
